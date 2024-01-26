@@ -8,6 +8,11 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -35,17 +40,29 @@ a {
 }
 
 /* ============Header============= */
-
-.header {
+.fixed-header {
     background: #e6f0ff;
-    height: 100vh;
+    padding-top: 26px;
+    position: sticky;
+    top: -26px;
+    z-index: 1;
+}
+
+.hero-wrap {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #e6f0ff;
+    height: calc(100vh - 90px);
+    position: relative;
+    justify-content: center;
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    padding-top: 38px;
+    /* padding-top: 38px; */
+    padding: 12px 0;
 }
 
 .navbar ul {
@@ -92,17 +109,14 @@ a {
     text-decoration: underline;
 }
 
-.hero {
-    margin-top: 130px;
-}
 
-.hero .info {
+.hero-wrap .info {
     width: 51%; /* theo thiết kế thì ở đây giá trị tuyệt đối là 559px, nhưng ta 
                         nên sử dụng % để khi thay đổi kích thước cha thì lập tức kích
                         thước này sẽ thay đổi theo */
 }
 
-.hero .sub-title {
+.hero-wrap .sub-title {
     font-family: Poppins;
     font-size: 1.8rem;
     font-weight: 500;
@@ -112,7 +126,7 @@ a {
     color: #687690;
 }
 
-.hero .title {
+.hero-wrap .title {
     font-family: Poppins;
     font-size: 6.4rem; /*Ta có thể giảm kích thước xuống 6.2rem hoặc nhúng font trên gg font*/
     font-weight: 700;
@@ -121,7 +135,7 @@ a {
     text-align: left;
 }
 
-.hero .desc {
+.hero-wrap .desc {
     margin-top: 30px;
     font-family: Poppins;
     font-size: 1.8rem;
@@ -599,7 +613,7 @@ a {
 }
 
 .footer .row-top {
-    gap: 185px;
+    column-gap: 185px;
 }
 
 .footer .heading {
@@ -618,14 +632,17 @@ a {
     line-height: 28px; /* 175% */
 }
 
+.footer .item {
+    margin-top: 18px;
+}
+
 .footer .list,
 .footer .desc {
     margin-top: 42px;
 }
 
-.footer .item,
+.footer .item a,
 .footer .desc {
-    margin-top: 18px;
     color: #7a7a7e;
     font-size: 1.6rem;
     font-weight: 400;
@@ -634,6 +651,7 @@ a {
 
 .footer .desc {
     white-space: wrap;
+    line-height: 1.75;
 }
 
 .footer .social {
@@ -656,6 +674,9 @@ a {
 }
 
 .footer .row-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 81px;
 }
 
